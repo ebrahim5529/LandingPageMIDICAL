@@ -33,30 +33,32 @@
     
     <!-- Structured Data (JSON-LD) -->
     <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "نظام إدارة العيادة الطبية الشاملة",
-        "description": "نظام إدارة شامل للعيادات الطبية يوفر إدارة المرضى، الأطباء، المواعيد، الفواتير، الوصفات الطبية، خدمة ردود ذكية وحجز إلكتروني",
-        "applicationCategory": "MedicalSoftware",
-        "operatingSystem": "Web",
-        "offers": {
-            "@type": "Offer",
-            "priceCurrency": "ILS",
-            "availability": "https://schema.org/InStock"
-        },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "5",
-            "ratingCount": "100"
-        },
-        "provider": {
-            "@type": "Organization",
-            "name": "نظام إدارة العيادة الطبية",
-            "telephone": "+972 56-804-3398",
-            "email": "info@clinic.com"
-        }
-    }
+    @php
+        echo json_encode([
+            '@context' => 'https://schema.org',
+            '@type' => 'SoftwareApplication',
+            'name' => 'نظام إدارة العيادة الطبية الشاملة',
+            'description' => 'نظام إدارة شامل للعيادات الطبية يوفر إدارة المرضى، الأطباء، المواعيد، الفواتير، الوصفات الطبية، خدمة ردود ذكية وحجز إلكتروني',
+            'applicationCategory' => 'MedicalSoftware',
+            'operatingSystem' => 'Web',
+            'offers' => [
+                '@type' => 'Offer',
+                'priceCurrency' => 'ILS',
+                'availability' => 'https://schema.org/InStock'
+            ],
+            'aggregateRating' => [
+                '@type' => 'AggregateRating',
+                'ratingValue' => '5',
+                'ratingCount' => '100'
+            ],
+            'provider' => [
+                '@type' => 'Organization',
+                'name' => 'نظام إدارة العيادة الطبية',
+                'telephone' => '+972 56-804-3398',
+                'email' => 'info@clinic.com'
+            ]
+        ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+    @endphp
     </script>
     
     <!-- Google Fonts - Cairo -->
